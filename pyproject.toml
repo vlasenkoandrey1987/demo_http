@@ -1,0 +1,45 @@
+[tool.isort]
+profile = "black"
+known_first_party = "demo_http"
+sections = ["FUTURE", "STDLIB", "FIRSTPARTY", "THIRDPARTY", "LOCALFOLDER"]
+line_length = 80
+
+[tool.yapf]
+based_on_style = "pep8"
+spaces_before_comment = 2
+column_limit = 80
+allow_split_before_dict_value = false
+dedent_closing_brackets = true
+split_complex_comprehension = true
+split_arguments_when_comma_terminated = true
+blank_line_before_nested_class_or_def = true
+# each_dict_entry_on_separate_line = false
+
+split_before_dict_set_generator = true
+split_before_first_argument = true
+split_before_arithmetic_operator = true
+split_before_logical_operator = true
+split_before_bitwise_operator = ture
+# split_before_expression_after_opening_paren = true
+
+[tool.yapfignore]
+exclude = [
+    'venv',
+]
+
+[tool.flake8]
+max-line-length = 80
+select = ['F', 'E', 'W', ]
+exclude = [
+    'venv',
+]
+
+# Мы используем правило W504, где наилучшей практикой является:
+# income = (gross_wages
+#           + taxable_interest)
+# Поэтому правило W503 должно быть проигнорированно, где наилучшая практика:
+# income = (gross_wages +
+#           taxable_interest)
+ignore = ['W503', ]
+
+count = true
