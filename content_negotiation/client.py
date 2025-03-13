@@ -1,9 +1,9 @@
 import requests
 
 
-def get(language, encoding):
+def get(port, resource, language, encoding):
     result = requests.get(
-        'http://localhost/doc.html',
+        f'http://localhost:{port}/{resource}',
         headers={
             **({'Accept-Language': language} if language is not None else {}),
             **({'Accept-Encoding': encoding} if encoding is not None else {}),
@@ -28,10 +28,12 @@ if __name__ == '__main__':
     gzip
     deflate
     """
+    port = 8080
+    resource = 'doc.html'
     language = None
     encoding = ''
 
-    result = get(language, encoding)
+    result = get(port, resource, language, encoding)
 
     print('status_code:', result.status_code)
     print('headers:', result.headers)
