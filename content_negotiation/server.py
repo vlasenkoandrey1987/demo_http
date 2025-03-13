@@ -145,4 +145,4 @@ def run_server(port):
 
 
 if __name__ == '__main__':
-    run_server(80)
+    run_server(8080)
